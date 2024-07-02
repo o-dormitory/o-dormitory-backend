@@ -31,7 +31,7 @@ DEBUG = os.getenv('DEBUG')
 # Application port
 PORT = os.getenv('PORT')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
