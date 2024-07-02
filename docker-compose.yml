@@ -5,6 +5,20 @@ services:
       - 8080:8080
     restart: always
 
+  api:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - .env
+    ports:
+      - ${PORT}:${PORT}
+    depends_on:
+      - db
+      - minio
+      - redis
+    command: python3 manage.py runserver 0.0.0.0:${PORT}
+
   db:
     image: postgres
     env_file:
