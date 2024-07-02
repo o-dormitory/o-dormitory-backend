@@ -31,7 +31,12 @@ DEBUG = os.getenv('DEBUG')
 # Application port
 PORT = os.getenv('PORT')
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = []
+
+CORS_ALLOW_ORIGINS = [
+    'http://localhost:3000',
+    'localhost',
+]
 
 
 # Application definition
@@ -58,9 +63,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ORIGINS = [
-    'http://localhost:3000',
-]
 
 ROOT_URLCONF = 'settings.urls'
 
