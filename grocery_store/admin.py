@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import GroceryImage, GroceryCard
+from .models import GroceryImage, GroceryCard, GroceryStore
+
+
+@admin.register(GroceryStore)
+class GroceryStoreAdmin(admin.ModelAdmin):
+    list_display = (
+        "uid",
+        "name",
+        "address",
+    )
 
 
 @admin.register(GroceryCard)

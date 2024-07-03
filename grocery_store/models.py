@@ -46,3 +46,24 @@ class GroceryCard(models.Model):
         verbose_name_plural = "Grocery Cards"
         db_table = "grocery_cards"
         ordering = ["name"]
+
+
+class GroceryStore(models.Model):
+    uid = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+        db_index=True,
+    )
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return f"{self.name} - {self.address}"
+
+    class Meta:
+        verbose_name = "Grocery Store"
+        verbose_name_plural = "Grocery Stores"
+        db_table = "grocery_stores"
+        ordering = ["name"]
+        unique_together = ["name", "address"]
