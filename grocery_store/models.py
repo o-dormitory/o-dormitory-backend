@@ -67,3 +67,26 @@ class GroceryStore(models.Model):
         db_table = "grocery_stores"
         ordering = ["name"]
         unique_together = ["name", "address"]
+
+
+class CardInGroceryStore(models.Model):
+    uid = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+        db_index=True,
+    )
+    card = models.ForeignKey(to=GroceryCard, on_delete=models.CASCADE)
+    store = models.ForeignKey(to=GroceryStore, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    remaining = models.PositiveIntegerField(default=0)
+
+    def __str__(self) -> str:
+        return f"{self.card.name} - {self.store.name}"
+
+    class Meta:
+        verbose_name = "Card In Grocery Store"
+        verbose_name_plural = "Cards In Grocery Store"
+        db_table = "card_in_grocery_stores"
+        ordering = ["store", "card"]
+        unique_together = ["card", "store"]

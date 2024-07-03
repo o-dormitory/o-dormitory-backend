@@ -1,5 +1,20 @@
 from django.contrib import admin
-from .models import GroceryImage, GroceryCard, GroceryStore
+from .models import GroceryImage, GroceryCard, GroceryStore, CardInGroceryStore
+
+
+@admin.register(CardInGroceryStore)
+class CardInGroceryStoreAdmin(admin.ModelAdmin):
+    list_display = (
+        "uid",
+        "card",
+        "store",
+        "price",
+        "remaining",
+    )
+    list_filter = (
+        "card",
+        "store",
+    )
 
 
 @admin.register(GroceryStore)
