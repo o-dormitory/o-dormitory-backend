@@ -4,6 +4,7 @@ from django.db import models
 
 
 class GroceryImage(models.Model):
+    """Model for storing grocery card images"""
     uid = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -23,6 +24,7 @@ class GroceryImage(models.Model):
 
 
 class GroceryCard(models.Model):
+    """Model for storing grocery cards"""
     uid = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -49,6 +51,7 @@ class GroceryCard(models.Model):
 
 
 class GroceryStore(models.Model):
+    """Model for storing grocery stores"""
     uid = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -70,6 +73,7 @@ class GroceryStore(models.Model):
 
 
 class CardInGroceryStore(models.Model):
+    """Model for storing cards in grocery stores"""
     uid = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
