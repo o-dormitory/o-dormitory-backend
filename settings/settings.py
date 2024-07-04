@@ -33,10 +33,7 @@ PORT = os.getenv('PORT')
 
 ALLOWED_HOSTS = []
 
-CORS_ALLOW_ORIGINS = [
-    'http://localhost:3000',
-    'localhost',
-]
+CORS_ALLOW_ORIGINS = os.getenv('CORS_ALLOW_ORIGINS').split(' ')
 
 
 # Application definition
